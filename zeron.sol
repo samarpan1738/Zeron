@@ -18,7 +18,7 @@ contract zeron {
         uint256 _value
     );
 
-    constructor(uint256 _initialSupply) public {
+    function zeron(uint256 _initialSupply) public {
         ownerAddress = msg.sender;
         balances[msg.sender] = _initialSupply;
         totalSupply = _initialSupply;
