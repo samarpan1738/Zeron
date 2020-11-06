@@ -1,0 +1,29 @@
+{
+  "name": "zeron",
+  "version": "1.0.0",
+  "description": "",
+  "main": "compile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shweta0002/Zeron.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@truffle/hdwallet-provider": "^1.0.43",
+    "bip39js": "^1.0.1",
+    "ethereumjs-tx": "^1.3.7",
+    "ethers": "^5.0.14",
+    "fs-extra": "^8.1.0",
+    "save": "^2.4.0",
+    "solc": "^0.6.6",
+    "web3": "^1.0.0-beta.26"
+  },
+  "bugs": {
+    "url": "https://github.com/Shweta0002/Zeron/issues"
+  },
+  "homepage": "https://github.com/Shweta0002/Zeron#readme"
+}
