@@ -1,7 +1,5 @@
-// var TX = require("ethereumjs-tx");
-// const Web3 = require("web3");
-import * as TX from "ethereumjs-tx";
-import * as Web3 from "web3";
+var TX = require("ethereumjs-tx");
+const Web3 = require("web3");
 //const web3 = new Web3('')
 var providerURL =
 	"https://rinkeby.infura.io/v3/e72daeeafa5f4e8cae0110b45fed3645";
@@ -9,7 +7,7 @@ const web3 = new Web3(new Web3.providers.HttpProvider(providerURL));
 
 var ContractAddress = "0xDD808B42049c076D88447993313E6bD08eAF92D1";
 
-const _interface = [
+const interface = [
 	{
 		inputs: [
 			{
@@ -350,7 +348,7 @@ const _interface = [
 		type: "function",
 	},
 ];
-var zeron = new web3.eth.Contract(_interface, ContractAddress); //deployed address
+var zeron = new web3.eth.Contract(interface, ContractAddress); //deployed address
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////ACCOUNTS USED////////////
 
@@ -458,19 +456,5 @@ async function approve(address, amount, account, privateKey, deployedAddress) {
 		throw { message: "ERROR: Unable to approve the user" };
 	}
 }
-
-export {
-	approve,
-	getbalance,
-	Transfer,
-	TransferFrom,
-	account1,
-	account2,
-	account3,
-	account4,
-	privateKey1,
-	zeron,
-	ContractAddress,
-};
 
 getbalance(account1);
