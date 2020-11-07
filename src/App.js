@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import "./App.css";
 import {
 	approve,
@@ -17,7 +17,9 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { ThemeProvider } from "@chakra-ui/core";
 import Register from "./components/Register/Register";
 import Marketplace from "./components/Marketplace/Marketplace";
+import LandingPage from "./components/LandingPage/LandingPage";
 import Get from "./components/Methods/Get";
+import Dashboard from "./components/Dashboard/Dashboard";
 
 export default function App() {
 	const [balances, setBalances] = useState([0, 0, 0, 0]);
@@ -42,6 +44,12 @@ export default function App() {
 					</Route>
 					<Route path="/market">
 						<Marketplace />
+					</Route>
+					<Route path="/dashboard" exact>
+						<Dashboard />
+					</Route>
+					<Route path="/" exact>
+						<LandingPage />
 					</Route>
 				</Switch>
 			</Router>

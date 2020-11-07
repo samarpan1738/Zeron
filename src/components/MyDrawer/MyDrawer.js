@@ -22,7 +22,7 @@ function MyDrawer() {
 				ref={btnRef}
 				variantColor="teal"
 				onClick={onOpen}
-				className="toggle-menu"
+				id="toggle-menu"
 			>
 				Menu
 			</Button>

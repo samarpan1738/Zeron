@@ -1,0 +1,84 @@
+#landing-page {
+	height: 100vh;
+	width: 100%;
+	display: grid;
+	place-content: center;
+	background-color: #2c7a7b;
+}
+
+#landing-page-card {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	height: 500px;
+	width: max-content;
+	background-color: white;
+	padding: 20px 60px;
+}
+
+#landing-heading-container {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+#landing-heading-container > div {
+	display: flex;
+	align-items: center;
+	margin-bottom: 8px;
+}
+
+#landing-heading-container img {
+	height: 80px;
+	margin: 0px 12px;
+}
+
+#landing-heading {
+	font-size: 92px;
+}
+
+#landing-motto {
+	font-size: 20px;
+}
+
+#google-login-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#google-text::before {
+	content: "";
+	position: absolute;
+	left: -32px;
+	right: 0px;
+	bottom: -12px;
+	width: 140px;
+	height: 1px;
+	border-top: 1px solid rgb(210, 210, 210);
+	margin: 0px auto;
+}
+
+#google-text {
+	color: gray;
+	position: relative;
+	margin-bottom: 24px;
+}
+
+#google-btn {
+	border: 2px solid rgb(210, 210, 210);
+	text-decoration: none;
+	padding: 1em 4em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 24px;
+	color: black;
+	border-radius: 4px;
+}
+
+#google-btn img {
+	height: 32px;
+	margin: 0px 8px;
+}

@@ -1,5 +1,11 @@
 .card-img {
 	width: 100%;
+	width: 350px;
+	height: 200px;
+	background-color: rgb(245, 245, 245);
+}
+.inner-box {
+	width: 100%;
 }
 .card {
 	border: 1px solid darkslategray;

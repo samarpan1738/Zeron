@@ -8,9 +8,9 @@ const userSchema = new Schema({
 		type: String,
 		required: true,
 	},
-	email: {
+	_id: {
 		type: String,
-		required: true,
+		required: true
 	},
 	picture: {
 		type: String,

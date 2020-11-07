@@ -5,12 +5,10 @@ const PORT = process.env.PORT || 4769;
 
 passport.serializeUser(function (user, cb) {
 	// Yha kuch krna hoga
-	console.log(user);
 	return cb(null, user);
 });
 
 passport.deserializeUser(function (obj, cb) {
-	console.log("deserialise =>", obj);
 	// Yha kuch krna hoga
 	return cb(null, obj);
 });

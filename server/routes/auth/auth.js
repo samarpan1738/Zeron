@@ -6,10 +6,6 @@ const passport = require("passport");
 const path = require("path");
 require("dotenv").config({ path: path.join(__dirname, "../.env") });
 
-const session = require("express-session");
-const MongoStore = require("connect-mongo")(session);
-const mongoose = require("mongoose");
-
 const isLoggedIn = (req, res, next) => {
 	if (req.user) {
 		next();
@@ -26,37 +22,6 @@ const wantToAuth = (req, res, next) => {
 	}
 };
 
-router.use(
-	session({
-		name: "zeron",
-		secret: process.env.SECRET_KEY,
-		resave: true,
-		saveUninitialized: true,
-		store: new MongoStore({
-			mongooseConnection: mongoose.connection,
-			url: process.env.DB_URL,
-		}),
-	})
-);
-
-router.use(passport.initialize());
-router.use(passport.session());
-
-router
-	.route("/")
-	.get(wantToAuth, (req, res) => {
-		res.sendFile(path.join(__dirname, "../../frontend/html/auth.html"));
-	})
-	.post((res, req) => {
-		console.log(req.body);
-		res.send("hey");
-	});
-
-router.post("/local", (req, res) => {
-	console.log(req.body);
-	res.send("ok");
-});
-
 router.get(
 	"/google",
 	passport.authenticate("google", { scope: ["profile", "email"] })
@@ -67,29 +32,29 @@ router.get(
 	passport.authenticate("google", { failureRedirect: "/auth/failed" }),
 	(req, res) => {
 		if (req.user) {
-			if (req.user.isNew) console.log("YES");
-			else res.redirect("http://localhost:3000/register");
+			if (req.user.isNew) {
+				res.redirect("http://localhost:3000/register");
+				return;
+			} else {
+				res.redirect("http://localhost:3000/market");
+				return;
+			}
 		} else {
 			console.log("User not in session");
+			res.redirect("http://localhost:3000/");
+			return;
 		}
-
-		res.redirect("http://localhost:3000/home");
 	}
 );
 
-router.get("/success", isLoggedIn, (req, res) => {
-	// console.log(req.user);
-	res.send(`Hello`);
-});
-
 router.get("/failed", (req, res) => {
-	res.send("Auth Failed");
+	res.redirect("http://localhost:3000/");
 });
 
 router.get("/logout", (req, res) => {
 	req.user = null;
 	req.logout();
-	res.redirect("/");
+	res.redirect("http://localhost:3000/");
 });
 
 module.exports = router;

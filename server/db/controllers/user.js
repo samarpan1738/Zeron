@@ -3,10 +3,11 @@ const mongoose = require("mongoose");
 
 async function addUser(id, userdata) {
 	try {
+
 		const user = await User.create({
 			name: userdata.name,
 			picture: userdata.picture,
-			_id: userdata.email,
+			_id: userdata._id,
 			accountNo: userdata.accountNo,
 		});
 
@@ -32,7 +33,7 @@ async function findUserAndUpdate(id, data) {
 		const user = await User.findByIdAndUpdate(id, data, {
 			new: true,
 		});
-
+		console.log(user);
 		if (user.errors) return { err: "User does not exist." };
 		else return { ...user._doc };
 	} catch (err) {

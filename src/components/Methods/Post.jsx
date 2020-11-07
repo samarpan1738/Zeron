@@ -1,20 +1,34 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect} from 'react';
+import { useHistory } from "react-router-dom";
 
 export default function Post(props) {
     
     const [state, setState] = useState();
-    const [callback, setCallback] = useState({wow:"hahah"});
+    const [callback, setCallback] = useState({});
+    let history = useHistory();
+
     useEffect(() => {
         if(state){
-            const body =
-                    
-           fetch(props.url, {
+
+            const body = JSON.stringify(state);
+
+            console.log(state)
+            fetch(props.url, {
                 method: "post",
-                body:  JSON.stringify(state),
+                body,
                 headers: {
                     "Content-Type": "application/json",
                 },
-            }).then(res => res.json()).then(data => setCallback(data)).catch(err => console.log(err));
+            }).then(res => {
+                console.log(res)
+                return res.json()
+            }).then(data => {
+                if(data.redirect){
+                    history.push(data.url)
+                    return;
+                }
+                setCallback(data)
+            }).catch(err => console.log(err));
            
         }
     }, [state, setCallback])
