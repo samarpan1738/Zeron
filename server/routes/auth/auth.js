@@ -68,7 +68,7 @@ router.get(
 	(req, res) => {
 		if (req.user) {
 			if (req.user.isNew) console.log("YES");
-			else res.redirect("http://localhost:3000/register")
+			else res.redirect("http://localhost:3000/register");
 		} else {
 			console.log("User not in session");
 		}

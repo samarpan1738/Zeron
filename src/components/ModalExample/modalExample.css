@@ -1,0 +1,30 @@
+.login-button {
+	width: 100%;
+}
+.line {
+	width: 100%;
+	height: 1px;
+	background-color: lightgrey;
+}
+.line-container {
+	display: flex !important;
+	align-items: center !important;
+}
+.google-auth {
+	width: 100%;
+	/* background-color: red; */
+	border-radius: 10px;
+	border: 2px solid #0a8080;
+	color: #0a8080;
+	font-weight: 700;
+}
+.google-auth:hover {
+	background-color: #0a8080;
+	color: white;
+}
+.icon-text {
+	margin: 0 0.5em;
+}
+/* .icon-text:hover {
+	color: white;
+} */

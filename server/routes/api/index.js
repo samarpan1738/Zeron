@@ -1,6 +1,6 @@
 const route = require("express").Router();
 
-route.use("/users", require("./users").route);
-route.use("/transactions", require("./transactions").route);
+route.use("/user", require("./user"));
+route.use("/transaction", require("./transactions"));
 
-exports = { route };
+module.exports = route;

@@ -24,13 +24,22 @@ passport.use(
 		},
 		async (accessToken, refreshToken, profile, cb) => {
 			// const user = User.findOneOrInsert(pr)
-			const user = await User.findOneOrInsert(
-				profile._json.email,
-				profile._json
-			);
+			const user = await User.findUser(profile._json.email);
 
-			console.log(use);
+			if (user.err) {
+				if (user.err.code == 400) {
+					// * New user
+					return cb(null, {
+						name: profile._json.given_name,
+						picture: profile._json.picture,
+						email: profile._json.email,
+						isNew: true,
+					});
+				} else return cb(user.err, null);
+			}
 
+			console.log(user);
+			// * Old User
 			return cb(null, user);
 		}
 	)

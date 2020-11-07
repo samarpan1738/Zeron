@@ -1,0 +1,10 @@
+.card-img {
+	width: 100%;
+}
+.card {
+	border: 1px solid darkslategray;
+	margin: 1em;
+}
+.toggle-menu {
+	margin-left: auto;
+}

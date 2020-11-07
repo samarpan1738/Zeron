@@ -1,4 +1,4 @@
-const{ Transaction } = require("../../models/transaction");
+// const{ Transaction } = require("../../db/models");
 const route = require("express").Router();
 
-exports = { route };
+module.exports = route;
