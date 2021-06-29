@@ -5,7 +5,7 @@ export default function OfferItem(props) {
 	
 
 	return (
-		<div className={"offer-card " + props.color} style={{ width: itemWidth.current }}>
+		<div className={"offer-card " + props.color} style={{  }}>
 			<div id="left-offer">
 				<img src={props.src} alt="" id="offer-img" />
 			</div>

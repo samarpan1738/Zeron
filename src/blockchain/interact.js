@@ -441,7 +441,8 @@ async function TransferFrom(
 }
 
 async function getbalance(_address) {
-	//// argument: address returns : total stars account is holding
+	// PARAMS 	: address 
+	// returns	: total stars account is holding
 	try {
 		var balance = await zeron.methods.balanceOf(_address).call();
 		console.log(balance);

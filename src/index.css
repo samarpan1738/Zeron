@@ -5,14 +5,35 @@ body {
 		sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	height: 100vh;
+	width: 100vw;
 }
 
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
 		monospace;
 }
+#root
+{
+	height: 100%;
+	width: 100%;
+	overflow-x: auto;
+}
+:root
+{
+	--background-primary:#121313;
+	--background-secondary:#181818;
+	--hover1:#292928;
+	--accent-primary:#3ca1a3;
+	--accent-secondary:#2c7a7b;
+	--background-3:#272727;
+	--background-4:#353535;
+
+}
 *,
 *::after,
 *::before {
 	box-sizing: border-box;
+	margin: 0;
+	padding:0;
 }

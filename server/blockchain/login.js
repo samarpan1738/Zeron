@@ -5,7 +5,7 @@ function getEntropy() {
 	return bip39.genEntropy(128);
 }
 
-function createAccount() {
+function createEthereumAccount() {
 	// GENERATE MNEMONIC
 	const mnemonic = bip39.genMnemonic(getEntropy());
 
@@ -44,7 +44,7 @@ function getAccountFromMnemonic(mnemonic) {
 }
 
 function createAccounts() {
-	console.log(createAccount());
+	console.log(createEthereumAccount());
 }
 
 function getAccountByMnemoics(_stringOfMnemonics) {
@@ -52,7 +52,7 @@ function getAccountByMnemoics(_stringOfMnemonics) {
 }
 
 
-module.exports = { createAccount };
+module.exports = { createEthereumAccount };
 //console.log(getAccountFromMnemonic('season system maze street yellow current clap lion pretty old comic crack'));// Sample Mnemonic
 
 //sample account created

@@ -1,0 +1,3 @@
+use ('Zeron');
+
+db.users.find().pretty()

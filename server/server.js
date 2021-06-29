@@ -10,11 +10,11 @@ const dotenv = require("dotenv").config();
 const expand = require("dotenv-expand");
 expand(dotenv);
 
-var cors = require("cors");
+const cors = require("cors");
 app.use(cors());
 // Body Parsers
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 
 app.use(
 	session({

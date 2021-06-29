@@ -1,9 +1,27 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap%27");
-.market-heading {
-	margin: 16px auto;
-	width: max-content;
-	font-size: 50px;
+
+.marketplace-heading {
+    font-size: 28px;
+    color: white;
+    margin-left: 20px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
 }
-.marketplace-container {
-	font-family: "Raleway", sans-serif;
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.left-arrow {
+    margin-right: 20px;
+    width: 45px;
+    height: 45px;
+    padding: 10px;
+    border-radius: 100px;
+    text-decoration: none;
+}
+.left-arrow:hover {
+    background-color: var(--hover1);
+    cursor: pointer;
 }
