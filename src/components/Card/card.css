@@ -49,3 +49,12 @@
 {
 	background-color: #3bca44;
 }
+.card-attributes
+{
+	/* display: flex; */
+}
+.card-attributes >p + p
+{
+	/* margin-left: 12px; */
+	margin-top:6px;
+}

@@ -93,7 +93,7 @@ export default function LandingPage() {
 
     useEffect(() => {
         if (userDetails.registrationPending == true) history.push("/register");
-        else history.push("/dashboard");
+        else if(userDetails.isAuthenticated) history.push("/dashboard");
     }, [userDetails.registerPending]);
 
     useEffect(() => {

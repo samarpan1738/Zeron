@@ -349,7 +349,7 @@ const _interface = [
     },
 ];
 var zeron = new web3.eth.Contract(_interface, ContractAddress); //deployed address
-
+console.log("deployed address :",zeron._provider.host)
 //////////////////////////////////////////////////////////////////////////////////////////////////////////ACCOUNTS USED////////////
 
 const account1 = "0x273C249b8bE25a88aDe9ec182655Af6ae263C58a";
@@ -434,6 +434,7 @@ async function TransferFrom(
             .encodeABI();
         await runCode(Transferred, account, privateKey, deployedAddress);
     } catch (err) {
+        console.log(err)
         throw { message: "ERROR : Token not transferred using transferFrom" };
     }
 }

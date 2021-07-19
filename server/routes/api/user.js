@@ -7,6 +7,7 @@ route.get("/", routeLogger, (req, res) => {
     console.log(req.user);
 
     if (req.user) {
+        console.log("User details ==>",req.user)
         res.json({ success: true, user: req.user });
         return;
     } else

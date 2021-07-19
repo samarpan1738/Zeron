@@ -53,7 +53,7 @@ function Sidebar() {
                     <MarketplaceIcon className="nav-icon" />
                     {!mobile && <p>Marketplace</p>}
                 </NavLink>
-                <NavLink to="/market">
+                <NavLink to="/transaction">
                     <TransactionsIcon className="nav-icon" />
                     {!mobile && <p>Transactions</p>}
                 </NavLink>

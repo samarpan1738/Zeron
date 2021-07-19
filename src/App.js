@@ -19,6 +19,7 @@ import Register from "./components/Register/Register";
 import Marketplace from "./pages/Marketplace/Marketplace";
 import LandingPage from "./components/LandingPage/LandingPage";
 import Dashboard from "./pages/Dashboard/Dashboard";
+import Transaction from "./pages/Transaction/Transaction";
 
 export default function App() {
     const [balances, setBalances] = useState([0, 0, 0, 0]);
@@ -44,6 +45,9 @@ export default function App() {
                     </Route>
                     <Route path="/dashboard" exact>
                         <Dashboard />
+                    </Route>
+                    <Route path="/transaction" exact>
+                        <Transaction />
                     </Route>
                     <Route path="/" exact>
                         <LandingPage />

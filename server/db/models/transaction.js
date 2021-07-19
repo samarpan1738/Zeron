@@ -13,13 +13,16 @@ const transactionSchema = new Schema(
             required: true,
         },
         amount: {
-            type: Number,
+            type: String,
             required: true,
         },
         status:{
             type:String,
             enum:["Complete","Pending","Failed"],
-            required:true
+            required:true,
+        },
+        vendor:{
+            type:String,
         }
     },
     { timestamps: { currentTime: () => Date.now() } }

@@ -198,6 +198,7 @@ function Dashboard() {
                         {/* <h4 className="user-detail-content">0x273C249b8bE25a88aDe9ec182655Af6ae263C58a</h4> */}
                     </div>
                 </div>
+            
             </div>
         </StyledPage>
     );

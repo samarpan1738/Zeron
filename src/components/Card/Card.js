@@ -9,45 +9,96 @@ import {
     ModalCloseButton,
     useDisclosure,
     Button,
+    useToast,
 } from "@chakra-ui/react";
 import "./card.css";
+import { useSelector } from "react-redux";
 
-function Card({ title, formattedPrice, imageUrl, discountRate }) {
+function Card({ title, imageUrl, price, ethereumAccountNo }) {
+    const userDetails = useSelector((state) => state.userDetails);
+    const toast = useToast();
     const { isOpen, onOpen, onClose } = useDisclosure();
-    const property = {
-        imageUrl: imageUrl,
-        imageAlt: "Rear view of modern home with pool",
-        title: title,
-        discountRate: discountRate,
-        formattedPrice: formattedPrice,
+    const buyOffer = (e) => {
+        fetch("/api/transaction/send", {
+            method: "POST",
+            body: JSON.stringify({
+                from: userDetails.ethereumAccountNo,
+                to: ethereumAccountNo,
+                privateKey: userDetails.ethereumPrivateKey,
+                amount: price.split(" ")[0],
+                vendor: title
+            }),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log("Transaction response : ", data);
+                if (data.success == false) {
+                    toast({
+                        title: "Transaction failed !",
+                        position: "top-right",
+                        description: data.message,
+                        status: "error",
+                        duration: 5000,
+                        isClosable: true,
+                    });
+                } else {
+                    toast({
+                        title: "Transaction successful",
+                        position: "top-right",
+                        status: "success",
+                        duration: 5000,
+                        isClosable: true,
+                    });
+                }
+            });
     };
-
+    console.log(`${title} | ethereumAccountNo : ${ethereumAccountNo}`);
     return (
         <div className="card">
-            <img
-                src={property.imageUrl}
-                alt={property.imageAlt}
-                className="card-img"
-            />
+            <img src={imageUrl} alt={title} className="card-img" />
 
             <div className="card-body">
-                <p>{property.title}</p>
-                <button className="card-btn">Buy</button>
-                <button className="card-btn" onClick={onOpen}>
-                    More
+                <div className="card-attributes">
+                    <p>{title}</p>
+                    <p>Price : {price}</p>
+                </div>
+
+                <button className="card-btn" onClick={buyOffer}>
+                    Buy
                 </button>
+                {/* <button className="card-btn" onClick={onOpen}>
+                    More
+                </button> */}
 
                 <Modal isOpen={isOpen} onClose={onClose}>
                     <ModalOverlay />
                     <ModalContent>
-                        <ModalHeader>{property.title}</ModalHeader>
+                        <ModalHeader>{title}</ModalHeader>
                         <ModalCloseButton />
                         <ModalBody>
                             <ul type="none">
-                                <li>Seller : <span>{property.title}</span></li>
-                                <li>Description : <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, voluptates?</span></li>
-                                <li>Seller Ethereum Id : <span>0x26d01dE26574CD43BEa92Cc03B1BcdbF0F2c6890</span></li>
-                                <li>Amount : <span>20 ZE</span></li>
+                                <li>
+                                    Seller : <span>{title}</span>
+                                </li>
+                                <li>
+                                    Description :{" "}
+                                    <span>
+                                        Lorem ipsum dolor sit amet consectetur
+                                        adipisicing elit. Quam, voluptates?
+                                    </span>
+                                </li>
+                                <li>
+                                    Seller Ethereum Id :{" "}
+                                    <span>
+                                        0x26d01dE26574CD43BEa92Cc03B1BcdbF0F2c6890
+                                    </span>
+                                </li>
+                                <li>
+                                    Amount : <span>20 ZE</span>
+                                </li>
                             </ul>
                         </ModalBody>
 
